@@ -117,7 +117,7 @@ export default function Analytics() {
                       <Pie data={bySubject} dataKey="value" nameKey="name" innerRadius={55} outerRadius={90} paddingAngle={3} stroke="#090909">
                         {bySubject.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                       </Pie>
-                      <Tooltip contentStyle={TOOLTIP} formatter={(v: number) => [`${v} min`, 'Time']} />
+                      <Tooltip contentStyle={TOOLTIP} formatter={(v) => v !== undefined && v !== null ? [`${v} min`, 'Time'] : ['', 'Time']} />
                       <Legend wrapperStyle={{ fontSize: 11, fontFamily: 'JetBrains Mono' }} />
                     </PieChart>
                   </ResponsiveContainer>
